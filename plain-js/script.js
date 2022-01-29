@@ -57,36 +57,24 @@ const btn_openp = btn('(', () => change(CURRENT + '('), true);
 const btn_closep = btn(')', () => change(CURRENT + ')'), true);
 const btn_c = btn('C', () => change(START_VALUE), true);
 const btn_del = btn('←', () => change(CURRENT.substring(0, CURRENT.length - 1)), true);
-const btn_fraction = btn(
-    '1/x',
-    () => {
-        solve();
-        if (SOLVED == null) return;
-        if (SOLVED == 0) {
-            alert("Can't divide by zezo");
-            return;
-        }
-        change(1.0 / SOLVED);
-    },
-    true
-);
-const btn_sqr = btn(
-    'x²',
-    () => {
-        solve();
-        if (SOLVED == null) return;
-        change(SOLVED * SOLVED);
-    },
-    true
-);
-const btn_sqrt = btn(
-    '√x',
-    () => {
-        solve();
-        change(Math.sqrt(SOLVED));
-    },
-    true
-);
+const btn_fraction = btn('1/x', () => {
+    solve();
+    if (SOLVED == null) return;
+    if (SOLVED == 0) {
+        alert("Can't divide by zezo");
+        return;
+    }
+    change(1.0 / SOLVED);
+}, true);
+const btn_sqr = btn('x²', () => {
+    solve();
+    if (SOLVED == null) return;
+    change(SOLVED * SOLVED);
+}, true);
+const btn_sqrt = btn('√x', () => {
+    solve();
+    change(Math.sqrt(SOLVED));
+}, true);
 const btn_divide = btn('÷', () => change(CURRENT + '/'), true);
 const btn_7 = btn('7', () => change(CURRENT + '7'));
 const btn_8 = btn('8', () => change(CURRENT + '8'));
@@ -106,16 +94,11 @@ const btn_negate = btn('±', () => {
 });
 const btn_0 = btn('0', () => change(CURRENT + '0'));
 const btn_point = btn('.', () => change(CURRENT + '.'));
-const btn_equals = btn(
-    '=',
-    () => {
-        solve();
-        if (SOLVED == null) return;
-        change(SOLVED);
-    },
-    false,
-    true
-);
+const btn_equals = btn('=', () => {
+    solve();
+    if (SOLVED == null) return;
+    change(SOLVED);
+}, false, true);
 
 //#endregion
 
